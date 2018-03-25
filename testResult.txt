@@ -1,0 +1,160 @@
+
+> build-apis-project-3-reddit@0.1.0 test C:\Users\phinkson\Documents\CodeAcademy\Projects\project-3-the-scoop
+> mocha
+
+
+
+Server is listening on 8080
+  Scoop - server.js: 
+    Database Setup
+      √ database should have a property called comments initialized to an object
+      √ database should have a property called nextCommentId initialized to 1
+    Routes Setup
+      √ routes should have a property called /comments initialized to an object
+      √ routes should have a property called /comments/:id initialized to an object
+      √ routes should have a property called /comments/:id/upvote initialized to an object
+      √ routes should have a property called /comments/:id/downvote initialized to an object
+    /comments POST
+      √ routes['/comments'] should have a method called POST
+      1) routes['/comments'].POST should create a new comment
+      2) routes['/comments'].POST should increment the next comment ID
+      3) routes['/comments'].POST should add a newly created comment's ID to the author's comment IDs
+      4) routes['/comments'].POST should add a newly created comment's ID to the article's comment IDs
+      5) routes['/comments'].POST should return a 201 response containing a newly-created comment
+      √ routes['/comments'].POST should return a 400 response if a required field is not supplied
+      √ routes['/comments'].POST should return a 400 response if the comment's user does not exist
+      6) routes['/comments'].POST should return a 400 response if the comment's article does not exist
+      √ routes['/comments'].POST should return a 400 response when given a request with no body
+      √ routes['/comments'].POST should return a 400 response when given a request with no comment
+    /comments/:id PUT
+      √ routes['/comments/:id'] should have a method called PUT
+      7) routes['/comments/:id'].PUT should update an existing comment
+      8) routes['/comments/:id'].PUT should not update uneditable fields
+      9) routes['/comments/:id'].PUT should not update fields to invalid values
+      10) routes['/articles/:id'].PUT should return a 200 response after a succesful update
+      11) routes['/comments/:id'].PUT should return a 404 response with a non-existent comment
+      12) routes['/comments/:id'].PUT should return a 400 response when not supplied a request body
+      13) routes['/comments/:id'].PUT should return a 400 response when not supplied an updated comment
+    /comments/:id DELETE
+      √ routes['/comments/:id'] should have a method called DELETE
+      √ routes['/comments/:id'].DELETE should delete an existing comment
+      14) routes['/comments/:id'].DELETE should remove a deleted comment ID from the author's comment IDs
+      15) routes['/comments/:id'].DELETE should remove a deleted comment ID from the article's comment IDs
+      √ routes['/comments/:id'].DELETE should return a 204 response after a succesful delete
+      √ routes['/comments/:id'].DELETE should return a 404 response with a non-existent comment ID
+    /commnets/:id/upvote PUT
+      √ routes['/comments/:id/upvote'] should have a method called PUT
+      √ routes['/comments/:id/upvote'].PUT should upvote an comment
+      √ routes['/comments/:id/upvote'].PUT should not allow a user to upvote multiple times
+      √ routes['/comments/:id/upvote'].PUT should remove a user from downvotedBy if they switch to upvote
+      √ routes['/comments/:id/upvote'].PUT should return a 200 response after a succesful upvote and send back the upvoted comment
+      √ routes['/comments/:id/upvote'].PUT should return a 400 response when supplied a non-existent user
+      √ routes['/comments/:id/upvote'].PUT should return a 400 response when supplied a non-existent comment ID
+      √ routes['/comments/:id/upvote'].PUT should return a 400 response when given no username
+      √ routes['/comments/:id/upvote'].PUT should return a 400 response when given no request body
+    /comments/:id/downvote PUT
+      √ routes['/comments/:id/downvote'] should have a method called PUT
+      √ routes['/comments/:id/downvote'].PUT should downvote an comment
+      √ routes['/comments/:id/downvote'].PUT should not allow a user to downvote multiple times
+      √ routes['/comments/:id/downvote'].PUT should remove a user from upvotedBy if they switch to downvote
+      √ routes['/comments/:id/downvote'].PUT should return a 200 response after a succesful downvote and send back the downvoted comment
+      √ routes['/comments/:id/downvote'].PUT should return a 400 response when supplied a non-existent user
+      √ routes['/comments/:id/downvote'].PUT should return a 400 response when supplied a non-existent comment ID
+      √ routes['/comments/:id/downvote'].PUT should return a 400 response when given no username
+      √ routes['/comments/:id/downvote'].PUT should return a 400 response when given no request body
+
+
+  34 passing (27ms)
+  15 failing
+
+  1) Scoop - server.js:  /comments POST routes['/comments'].POST should create a new comment:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:86:34)
+
+  2) Scoop - server.js:  /comments POST routes['/comments'].POST should increment the next comment ID:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:101:34)
+
+  3) Scoop - server.js:  /comments POST routes['/comments'].POST should add a newly created comment's ID to the author's comment IDs:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:112:34)
+
+  4) Scoop - server.js:  /comments POST routes['/comments'].POST should add a newly created comment's ID to the article's comment IDs:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:123:34)
+
+  5) Scoop - server.js:  /comments POST routes['/comments'].POST should return a 201 response containing a newly-created comment:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:134:51)
+
+  6) Scoop - server.js:  /comments POST routes['/comments'].POST should return a 400 response if the comment's article does not exist:
+     ReferenceError: requestArticle is not defined
+      at Object.createComment [as POST] (server.js:269:17)
+      at Context.<anonymous> (test\test.js:190:51)
+
+  7) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should update an existing comment:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:234:37)
+
+  8) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should not update uneditable fields:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:246:37)
+
+  9) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should not update fields to invalid values:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:260:37)
+
+  10) Scoop - server.js:  /comments/:id PUT routes['/articles/:id'].PUT should return a 200 response after a succesful update:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:272:54)
+
+  11) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should return a 404 response with a non-existent comment:
+     TypeError: Cannot read property '2' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:285:54)
+
+  12) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should return a 400 response when not supplied a request body:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:298:54)
+
+  13) Scoop - server.js:  /comments/:id PUT routes['/comments/:id'].PUT should return a 400 response when not supplied an updated comment:
+     TypeError: Cannot read property '1' of undefined
+      at Object.updateComment [as PUT] (server.js:291:41)
+      at Context.<anonymous> (test\test.js:311:54)
+
+  14) Scoop - server.js:  /comments/:id DELETE routes['/comments/:id'].DELETE should remove a deleted comment ID from the author's comment IDs:
+
+      AssertionError: expected [ 1, 2 ] to deeply equal [ 2 ]
+      + expected - actual
+
+       [
+      -  1
+         2
+       ]
+      
+      at Context.<anonymous> (test\test.js:361:52)
+
+  15) Scoop - server.js:  /comments/:id DELETE routes['/comments/:id'].DELETE should remove a deleted comment ID from the article's comment IDs:
+
+      AssertionError: expected [ 1, 2 ] to deeply equal [ 2 ]
+      + expected - actual
+
+       [
+      -  1
+         2
+       ]
+      
+      at Context.<anonymous> (test\test.js:367:50)
+
+
+
